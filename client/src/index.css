@@ -1,0 +1,360 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Elara Tecnologia Design System */
+  /* Minimalismo Corporativo Contemporâneo */
+  
+  --primary: #0052CC;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #0052CC;
+  --sidebar-primary-foreground: #FFFFFF;
+  --chart-1: #0052CC;
+  --chart-2: #0066FF;
+  --chart-3: #0052CC;
+  --chart-4: #003D99;
+  --chart-5: #002E73;
+  --radius: 0.5rem;
+  
+  /* Light theme - Branco e Preto */
+  --background: #FFFFFF;
+  --foreground: #0F0F0F;
+  --card: #FFFFFF;
+  --card-foreground: #0F0F0F;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F0F0F;
+  --secondary: #F5F5F5;
+  --secondary-foreground: #333333;
+  --muted: #E8E8E8;
+  --muted-foreground: #666666;
+  --accent: #0052CC;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8E8E8;
+  --input: #F5F5F5;
+  --ring: #0052CC;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0F0F0F;
+  --sidebar-accent: #F5F5F5;
+  --sidebar-accent-foreground: #0052CC;
+  --sidebar-border: #E8E8E8;
+  --sidebar-ring: #0052CC;
+}
+
+.dark {
+  --primary: #0066FF;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #0066FF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --background: #0F0F0F;
+  --foreground: #FFFFFF;
+  --card: #1A1A1A;
+  --card-foreground: #FFFFFF;
+  --popover: #1A1A1A;
+  --popover-foreground: #FFFFFF;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #E0E0E0;
+  --muted: #333333;
+  --muted-foreground: #999999;
+  --accent: #0066FF;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF5555;
+  --destructive-foreground: #FFFFFF;
+  --border: #333333;
+  --input: #1A1A1A;
+  --ring: #0066FF;
+  --chart-1: #0066FF;
+  --chart-2: #0080FF;
+  --chart-3: #0052CC;
+  --chart-4: #003D99;
+  --chart-5: #002E73;
+  --sidebar: #1A1A1A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-accent: #333333;
+  --sidebar-accent-foreground: #0066FF;
+  --sidebar-border: #333333;
+  --sidebar-ring: #0066FF;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Poppins', sans-serif;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+  
+  /* Elara Tecnologia Custom Components */
+  
+  .section-divider {
+    @apply border-t border-border my-0;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-bold tracking-tight;
+  }
+  
+  .text-muted {
+    @apply text-muted-foreground;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-md transition-all duration-200 hover:shadow-lg active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-primary text-primary font-semibold rounded-md transition-all duration-200 hover:bg-primary hover:text-primary-foreground active:scale-95;
+  }
+  
+  .card-service {
+    @apply p-6 border border-border rounded-lg transition-all duration-300 hover:shadow-lg hover:border-primary/50;
+  }
+  
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+}
+
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--foreground);
+    background:
+      radial-gradient(circle at top left, rgba(0,82,204,0.03), transparent 28%),
+      linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-18 md:py-24 lg:py-28;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.02];
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-extrabold tracking-tight leading-tight;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3.5 bg-primary text-primary-foreground font-semibold rounded-xl transition-all duration-200 hover:opacity-95 hover:shadow-[0_10px_24px_rgba(0,82,204,.18)] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3.5 border border-border bg-background text-foreground font-semibold rounded-xl transition-all duration-200 hover:border-primary/30 hover:text-primary active:scale-[0.98];
+  }
+
+  .card-service {
+    @apply p-7 border border-border rounded-[22px] transition-all duration-300 hover:border-primary/30 hover:shadow-[0_14px_30px_rgba(15,23,42,.05)];
+  }
+
+  .nav-shell {
+    @apply rounded-full border border-border bg-background/80 px-2 py-1;
+  }
+
+  .nav-link {
+    @apply px-4 py-2 rounded-full text-foreground/85 font-medium transition-all duration-200 hover:text-primary hover:bg-secondary;
+  }
+
+  .logo-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #1463eb 0%, #0b4fcc 100%);
+    box-shadow: 0 8px 20px rgba(0, 82, 204, 0.18), inset 0 1px 0 rgba(255,255,255,0.22);
+  }
+
+  .logo-mark-sm {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .logo-letter {
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.12);
+  }
+
+  .section-label {
+    @apply inline-flex items-center rounded-full border border-primary/12 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary;
+  }
+
+  .hero-pill {
+    @apply inline-flex items-center rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground/80;
+  }
+
+  .flat-panel {
+    @apply border border-border bg-white shadow-[0_16px_40px_rgba(15,23,42,.06)];
+  }
+
+  .flat-panel-hero {
+    box-shadow: 0 20px 48px rgba(15,23,42,.07);
+  }
+
+  .flat-caption {
+    @apply rounded-2xl border border-white/50 bg-white/88 backdrop-blur-sm p-4 md:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4;
+  }
+
+  .caption-badge {
+    @apply inline-flex items-center rounded-full bg-primary px-3.5 py-2 text-sm font-semibold text-white;
+  }
+
+  .flat-list-item {
+    @apply flex gap-4 items-start rounded-2xl border border-border bg-white p-5;
+  }
+
+  .flat-box {
+    @apply rounded-[24px] border border-border bg-white p-6 md:p-7 shadow-[0_12px_32px_rgba(15,23,42,.04)];
+  }
+
+  .solution-item {
+    @apply rounded-2xl border border-border bg-white p-5 transition-all duration-200 hover:border-primary/25;
+  }
+
+  .service-icon-shell {
+    @apply mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/7 border border-primary/10;
+  }
+
+  .field-input {
+    @apply w-full rounded-xl border border-border bg-white px-4 py-3.5 text-foreground placeholder:text-muted-foreground transition-all duration-200 focus:border-primary/35 focus:ring-4 focus:ring-primary/10 focus:outline-none;
+  }
+
+  .bg-soft {
+    background:
+      linear-gradient(180deg, #fbfbfc 0%, #f7f8fb 100%);
+  }
+
+  .image-soft {
+    filter: saturate(0.94) contrast(1.03);
+  }
+}
