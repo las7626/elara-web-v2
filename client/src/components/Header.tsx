@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import LogoMark from './LogoMark';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 w-full bg-background/92 backdrop-blur-md border-b border-border z-50">
+    <header className="fixed top-0 w-full bg-background/88 backdrop-blur-md border-b border-border z-50">
       <div className="container">
         <div className="flex items-center justify-between h-20">
           <button
@@ -29,9 +30,7 @@ export default function Header() {
             className="flex items-center gap-3 text-left"
             aria-label="Ir para o início"
           >
-            <span className="logo-mark">
-              <span className="logo-letter">E</span>
-            </span>
+            <LogoMark />
             <span className="flex flex-col leading-none">
               <span className="text-lg md:text-xl font-extrabold tracking-tight text-foreground">Elara Tecnologia</span>
               <span className="text-[11px] md:text-xs text-muted-foreground mt-1">Consultoria em TI para pequenas empresas</span>
@@ -59,7 +58,7 @@ export default function Header() {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-secondary rounded-xl transition-colors"
+            className="md:hidden p-2 hover:bg-secondary rounded-md transition-colors"
             aria-label="Abrir menu"
           >
             {isMenuOpen ? (
@@ -77,7 +76,7 @@ export default function Header() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left px-4 py-3 text-foreground font-medium hover:text-primary hover:bg-secondary rounded-xl transition-all duration-200"
+                  className="text-left px-4 py-3 text-foreground font-medium hover:text-primary hover:bg-secondary rounded-md transition-all duration-200"
                 >
                   {item.label}
                 </button>

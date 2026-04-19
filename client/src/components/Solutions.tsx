@@ -56,13 +56,13 @@ export default function Solutions() {
             </div>
           </div>
 
-          <div className="relative min-h-[420px] md:min-h-[520px] rounded-[24px] overflow-hidden flat-panel">
+          <div className="section-media flat-panel">
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663492254489/2ZvjmHnWYcjByrPRe62eiC/solutions-dashboard-MbMf6bdLkKnQKQFXqdhziT.webp"
               alt="Dashboard de gerenciamento de TI"
-              className="w-full h-full object-cover image-soft"
+              className="section-media-image image-soft object-[center_40%]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/20 via-transparent to-[#0052CC]/10"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/14 via-transparent to-[#0052CC]/8"></div>
           </div>
         </div>
       </div>

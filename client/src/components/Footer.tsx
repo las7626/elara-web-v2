@@ -1,4 +1,5 @@
 import { Mail, Phone } from 'lucide-react';
+import LogoMark from './LogoMark';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,9 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="logo-mark logo-mark-sm">
-                <span className="logo-letter">E</span>
-              </span>
+              <LogoMark compact dark />
               <div>
                 <h3 className="text-xl font-extrabold leading-none">Elara Tecnologia</h3>
                 <p className="text-white/65 text-sm mt-1">Consultoria em TI para pequenas empresas</p>

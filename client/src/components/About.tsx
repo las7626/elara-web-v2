@@ -19,14 +19,14 @@ export default function About() {
   return (
     <section id="about" className="section-padding bg-background">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-[0.95fr_1.05fr] gap-12 items-center">
-          <div className="relative min-h-[380px] md:min-h-[470px] rounded-[24px] overflow-hidden flat-panel order-2 md:order-1">
+        <div className="grid grid-cols-1 md:grid-cols-[0.94fr_1.06fr] gap-12 items-center">
+          <div className="section-media flat-panel order-2 md:order-1">
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663492254489/2ZvjmHnWYcjByrPRe62eiC/about-it-team-kAuNi5gE2GTkQp9BKMaooB.webp"
               alt="Equipe de TI em ambiente corporativo"
-              className="w-full h-full object-cover image-soft"
+              className="section-media-image image-soft object-[center_30%]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-white/8 to-transparent"></div>
           </div>
 
           <div className="flex flex-col gap-8 order-1 md:order-2">

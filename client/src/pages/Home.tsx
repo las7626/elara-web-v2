@@ -5,22 +5,13 @@ import Services from '@/components/Services';
 import Solutions from '@/components/Solutions';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
-/**
- * Elara Tecnologia - Landing Page
- * 
- * Design Philosophy: Minimalismo Corporativo Contemporâneo
- * - Swiss Design principles
- * - Clean white/black/blue color scheme
- * - Generous whitespace
- * - Professional typography
- * - Smooth interactions
- */
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      
+
       <main className="flex-1">
         <Hero />
         <About />
@@ -28,8 +19,9 @@ export default function Home() {
         <Solutions />
         <Contact />
       </main>
-      
+
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
